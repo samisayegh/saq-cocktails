@@ -3,18 +3,35 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// includes all material design elements
+import { MaterialModule } from '../material/material.module';
+
 import { AppComponent } from './app.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+
+import { SaqService } from './services/saq/saq.service';
+
+// Rxjs operators
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    SaqService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
