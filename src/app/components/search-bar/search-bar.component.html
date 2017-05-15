@@ -1,11 +1,14 @@
 <div class="search-bar-component">
-	<md-input-container>
-		<input type="text" mdInput [mdAutocomplete]="auto" [ngModel]="query" #q (ngModelChange)="queryUpdated(q.value)" placeholder="What would you like to drink?">
-	</md-input-container>
+	<md-grid-list cols="1">
+		<md-input-container>
+			<input type="search" mdInput [mdAutocomplete]="auto" [ngModel]="query" #q (ngModelChange)="queryUpdated(q.value)">
+			<md-placeholder>What would you like to drink?</md-placeholder>
+		</md-input-container>
 
-	<md-autocomplete #auto="mdAutocomplete">
-		<md-option *ngFor="let option of filteredOptions" [value]="option">
-			{{ option }}
-		</md-option>
-	</md-autocomplete>
+		<md-autocomplete #auto="mdAutocomplete">
+			<md-option *ngFor="let option of filteredOptions" [value]="option" (click)="selectCocktail(option)">{{ option }}</md-option>
+		</md-autocomplete>
+
+		<button md-button (click)="randomCocktail()" [color]="'accent'">Surprise me!</button>
+	</md-grid-list>
 </div>

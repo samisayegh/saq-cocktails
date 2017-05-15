@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
+import { CocktailService } from './services/cocktail/cocktail.service';
 import { SaqService } from './services/saq/saq.service';
 
 // Rxjs operators
@@ -30,6 +31,7 @@ import 'rxjs/add/operator/catch';
     MaterialModule
   ],
   providers: [
+    CocktailService,
     SaqService
   ],
   bootstrap: [AppComponent]

@@ -5,7 +5,9 @@ import {
   MdButtonModule,
   MdAutocompleteModule,
   MdInputModule,
-  MdOptionModule
+  MdOptionModule,
+  MdIconModule,
+  MdGridListModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,14 +19,18 @@ import {
     MdButtonModule,
     MdAutocompleteModule,
     MdInputModule,
-    MdOptionModule
+    MdOptionModule,
+    MdIconModule,
+    MdGridListModule
   ],
   exports: [
     BrowserAnimationsModule,
     MdButtonModule,
     MdAutocompleteModule,
     MdInputModule,
-    MdOptionModule
+    MdOptionModule,
+    MdIconModule,
+    MdGridListModule
   ],
   providers: []
 })

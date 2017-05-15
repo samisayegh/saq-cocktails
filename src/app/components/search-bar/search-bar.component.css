@@ -3,23 +3,10 @@
 	justify-content: center;
 }
 
+md-grid-list {
+	min-width: 375px;
+}
+
 md-input-container {
 	min-width: 250px;
-	width: 50%;
-}
-
-::-webkit-input-placeholder {
-   text-align: center;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   text-align: center;  
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   text-align: center;  
-}
-
-:-ms-input-placeholder {  
-   text-align: center; 
 }
