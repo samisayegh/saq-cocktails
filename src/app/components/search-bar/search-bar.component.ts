@@ -25,7 +25,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     }
 
     queryUpdated(val: string) {
-        this.query = val;
         this.filteredOptions = this.filter(val.toLowerCase());
     }
 

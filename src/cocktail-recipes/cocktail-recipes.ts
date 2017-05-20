@@ -61,7 +61,7 @@ class CocktailInfo {
 }
 
 // All recipe numbers are in ounces. If a number is not in ounces, it is stored as a string.
-const cocktailInfo = {
+const cocktailInfos = {
     [cocktails.BLOODY_MARY]: new CocktailInfo(
         cocktails.BLOODY_MARY,
         {[alcohols.VODKA]: 1},
@@ -146,4 +146,4 @@ const cocktailInfo = {
         )
 };
 
-export { cocktails, cocktailInfo, CocktailInfo }
+export { cocktails, cocktailInfos, CocktailInfo }

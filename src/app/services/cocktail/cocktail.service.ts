@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { cocktails, cocktailInfo, CocktailInfo } from '../../../cocktail-recipes/cocktail-recipes';
+import { cocktails, cocktailInfos, CocktailInfo } from '../../../cocktail-recipes/cocktail-recipes';
 
 @Injectable()
 export class CocktailService {
@@ -10,6 +10,6 @@ export class CocktailService {
     cocktails: string[] = Object.keys(cocktails).map(key => cocktails[key]);
 
     updateSelectedCocktail(cocktail: string) {
-        this.selectedCocktail.next(cocktailInfo[cocktail]);
+        this.selectedCocktail.next(cocktailInfos[cocktail]);
     }
 }
