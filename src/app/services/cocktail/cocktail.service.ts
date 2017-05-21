@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { cocktails, cocktailInfos, CocktailInfo } from '../../../cocktail-recipes/cocktail-recipes';
+import { cocktails, cocktailInfos, CocktailInfo } from '../../../data/cocktail-recipes';
 
 @Injectable()
 export class CocktailService {

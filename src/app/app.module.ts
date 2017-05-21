@@ -8,6 +8,8 @@ import { MaterialModule } from '../material/material.module';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { RecipeComponent } from './components/recipe/recipe.component';
+import { IngredientComponent } from './components/ingredient/ingredient.component';
 
 import { CocktailService } from './services/cocktail/cocktail.service';
 import { SaqService } from './services/saq/saq.service';
@@ -22,7 +24,9 @@ import 'rxjs/add/operator/catch';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    RecipeComponent,
+    IngredientComponent
   ],
   imports: [
     BrowserModule,

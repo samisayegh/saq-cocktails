@@ -47,12 +47,28 @@ const cocktails = {
     SIDECAR: 'Sidecar'
 };
 
+interface AlcoholIngredients {
+    [key: string]: number;
+}
+
+interface OtherIngredients {
+    [key: string]: string | number;
+}
+
+interface Recipe {
+    alcohols: AlcoholIngredients;
+    other: OtherIngredients;
+};
+
 class CocktailInfo {
     name: string;
-    recipe: any = {};
+    recipe: Recipe = {
+        alcohols: null,
+        other: null
+    };
     instructions: string;
 
-    constructor(name: string, alcoholIngredients: {[key: string]: number}, other: {[key: string]: string | number}, instructions: string) {
+    constructor(name: string, alcoholIngredients: AlcoholIngredients, other: OtherIngredients, instructions: string) {
         this.name = name;
         this.recipe.alcohols = alcoholIngredients;
         this.recipe.other = other;
@@ -146,4 +162,4 @@ const cocktailInfos = {
         )
 };
 
-export { cocktails, cocktailInfos, CocktailInfo }
+export { AlcoholIngredients, cocktails, cocktailInfos, CocktailInfo, OtherIngredients, Recipe }

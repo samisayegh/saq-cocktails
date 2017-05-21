@@ -8,7 +8,7 @@ import { SearchBarComponent } from './search-bar.component';
 import { CocktailService } from '../../services/cocktail/cocktail.service';
 
 // data
-import { cocktails, cocktailInfos } from '../../../cocktail-recipes/cocktail-recipes';
+import { cocktails, cocktailInfos } from '../../../data/cocktail-recipes';
 
 let comp: SearchBarComponent;
 let fixture: ComponentFixture<SearchBarComponent>;
