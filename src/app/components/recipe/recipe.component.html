@@ -1,4 +1,8 @@
 <div class='recipe-component' *ngIf="recipe">
-	<app-ingredient *ngFor="let alcohol of generateArray(recipe.alcohols)" [isAlcohol]="true" [name]="alcohol.name" [quantity]="alcohol.quantity"></app-ingredient>
-	<app-ingredient *ngFor="let other of generateArray(recipe.other)" [isAlcohol]="false" [name]="other.name" [quantity]="other.quantity"></app-ingredient>
+	<div class="row">
+		<app-ingredient *ngFor="let alcohol of func.convertObjToArray(recipe.alcohols)" [isAlcohol]="true" [name]="alcohol.name" [quantity]="alcohol.quantity"></app-ingredient>
+	</div>
+	<div class="row">
+		<app-ingredient *ngFor="let other of func.convertObjToArray(recipe.other)" [isAlcohol]="false" [name]="other.name" [quantity]="other.quantity"></app-ingredient>
+	</div>
 </div>

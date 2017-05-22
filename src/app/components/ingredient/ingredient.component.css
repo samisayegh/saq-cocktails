@@ -1,0 +1,11 @@
+md-card {
+	height: 280px;
+	width: 200px;
+	text-align: center;
+	margin: 12px;
+}
+
+img {
+	width: auto;
+	max-height: 170px;
+}

@@ -29,7 +29,7 @@ const ingredients = {
     TABASCO_SAUCE: 'Tabasco sauce',
     TOMATO_JUICE: 'Tomato juice',
     TONIC_WATER: 'Tonic water',
-    WORCESTERSHIRE_SAUCE: ' Worcestershire sauce'
+    WORCESTERSHIRE_SAUCE: 'Worcestershire sauce'
 };
 
 const cocktails = {

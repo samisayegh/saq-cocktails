@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { CocktailService } from '../../services/cocktail/cocktail.service';
 import { Recipe } from '../../../data/cocktail-recipes'
+import { Func } from '../../../utils/functions';
 
 @Component({
     selector: 'app-recipe',
@@ -14,7 +15,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
 	cocktailSubscription: Subscription;
 	recipe: Recipe;
 
-	constructor(private cocktailService: CocktailService) {}
+	constructor(private cocktailService: CocktailService, private func: Func) {}
 	
 	ngOnInit() {
 		this.cocktailSubscription = this.cocktailService.selectedCocktail.subscribe(cocktailInfo => {
@@ -24,15 +25,5 @@ export class RecipeComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.cocktailSubscription.unsubscribe();
-	}
-
-	generateArray(obj) {
-		if (obj) {
-			return Object.keys(obj).map(key => {
-				return {name: key, quantity: obj[key]}
-			});
-		} else {
-			return [];
-		}
 	}
 }

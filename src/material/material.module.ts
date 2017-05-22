@@ -7,7 +7,8 @@ import {
   MdInputModule,
   MdOptionModule,
   MdIconModule,
-  MdGridListModule
+  MdGridListModule,
+  MdCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -21,7 +22,8 @@ import {
     MdInputModule,
     MdOptionModule,
     MdIconModule,
-    MdGridListModule
+    MdGridListModule,
+    MdCardModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -30,7 +32,8 @@ import {
     MdInputModule,
     MdOptionModule,
     MdIconModule,
-    MdGridListModule
+    MdGridListModule,
+    MdCardModule
   ],
   providers: []
 })
