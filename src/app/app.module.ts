@@ -15,6 +15,7 @@ import { CocktailService } from './services/cocktail/cocktail.service';
 import { SaqService } from './services/saq/saq.service';
 
 import { Func } from '../utils/functions';
+import { Maths } from '../utils/maths';
 
 // Rxjs operators
 import 'rxjs/add/operator/map';
@@ -39,7 +40,8 @@ import 'rxjs/add/operator/catch';
   providers: [
     CocktailService,
     SaqService,
-    Func
+    Func,
+    Maths
   ],
   bootstrap: [AppComponent]
 })

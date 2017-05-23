@@ -116,7 +116,7 @@ const cocktailInfos = {
     [cocktails.MANHATTAN]: new CocktailInfo(
         cocktails.MANHATTAN,
         {[alcohols.WHISKY]: 2, [alcohols.VERMOUTH]: 1},
-        {[ingredients.ANGOSTURA_BITTERS]: '2 dashes'},
+        {[ingredients.ANGOSTURA_BITTERS]: '2 dashes of'},
         'Stir the ingredients with cracked ice, then strain into in a chilled coupe. Garnish with an orange twist or brandied cherry.'
         ),
 
@@ -137,7 +137,7 @@ const cocktailInfos = {
     [cocktails.MOJITO]: new CocktailInfo(
         cocktails.MOJITO,
         {[alcohols.WHITE_RUM]: 2},
-        {[ingredients.CLUB_SODA]: 1, [ingredients.LIME_JUICE]: 1,  [ingredients.MINT_LEAVES]: '12', [ingredients.SUGAR]: '2 teaspoons'},
+        {[ingredients.CLUB_SODA]: 1, [ingredients.LIME_JUICE]: 1,  [ingredients.MINT_LEAVES]: '12', [ingredients.SUGAR]: '2 teaspoons of'},
         'Fill a glass with ice. Crush the mint leaves to release their oils and flavour. Stir the ingredients together until the sugar has dissolved and pour into the chilled glass.'),
 
     [cocktails.NEGRONI]: new CocktailInfo(

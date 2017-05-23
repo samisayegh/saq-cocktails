@@ -1,6 +1,6 @@
 <md-card class="ingredient-component">
 	<!-- <md-card-header>{{ quantity }}</md-card-header> -->
-	<md-card-title>{{ name }}</md-card-title>
+	<md-card-title>{{ formatIngredientTitle() }}</md-card-title>
 	<img md-card-image [src]="getImagePath()">
 	<md-card-actions *ngIf="isAlcohol">
 		<button md-raised-button [color]="'accent'"><i class="material-icons">chevron_left</i></button>

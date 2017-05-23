@@ -1,5 +1,5 @@
 export class Func {
-    convertObjToArray(obj) {
+    convertObjToArray(obj): {name: string, quantity: string | number}[] {
         if (obj) {
             return Object.keys(obj).map(key => {
                 return {name: key, quantity: obj[key]};
@@ -8,11 +8,4 @@ export class Func {
             return [];
         }
     };
-
-    convertDecimalToFraction(decimal: number): {num: number, den: number} {
-        return {
-            num: 1,
-            den: 1
-        };
-    }
 }
