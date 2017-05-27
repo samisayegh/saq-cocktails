@@ -1,3 +1,5 @@
+import { Func } from '../utils/functions';
+
 const alcohols = {
     CAMPARI: 'Campari',
     COGNAC: 'Cognac',
@@ -47,17 +49,18 @@ const cocktails = {
     SIDECAR: 'Sidecar'
 };
 
-interface AlcoholIngredients {
-    [key: string]: number;
-}
-
-interface OtherIngredients {
+interface IngredientObj {
     [key: string]: string | number;
 }
 
+interface Ingredient {
+    name: string;
+    quantity: string | number;
+}
+
 interface Recipe {
-    alcohols: AlcoholIngredients;
-    other: OtherIngredients;
+    alcohols: Ingredient[];
+    other: Ingredient[];
 };
 
 class CocktailInfo {
@@ -68,10 +71,10 @@ class CocktailInfo {
     };
     instructions: string;
 
-    constructor(name: string, alcoholIngredients: AlcoholIngredients, other: OtherIngredients, instructions: string) {
+    constructor(name: string, alcoholIngredients: IngredientObj, other: IngredientObj, instructions: string) {
         this.name = name;
-        this.recipe.alcohols = alcoholIngredients;
-        this.recipe.other = other;
+        this.recipe.alcohols = Func.ingredientObjToArray(alcoholIngredients) ;
+        this.recipe.other = Func.ingredientObjToArray(other);
         this.instructions = instructions;
     }
 }
@@ -162,4 +165,4 @@ const cocktailInfos = {
         )
 };
 
-export { AlcoholIngredients, cocktails, cocktailInfos, CocktailInfo, OtherIngredients, Recipe }
+export { cocktails, cocktailInfos, CocktailInfo, Recipe }

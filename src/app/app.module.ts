@@ -14,7 +14,6 @@ import { IngredientComponent } from './components/ingredient/ingredient.componen
 import { CocktailService } from './services/cocktail/cocktail.service';
 import { SaqService } from './services/saq/saq.service';
 
-import { Func } from '../utils/functions';
 import { Maths } from '../utils/maths';
 
 // Rxjs operators
@@ -40,7 +39,6 @@ import 'rxjs/add/operator/catch';
   providers: [
     CocktailService,
     SaqService,
-    Func,
     Maths
   ],
   bootstrap: [AppComponent]

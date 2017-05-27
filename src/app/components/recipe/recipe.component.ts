@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { CocktailService } from '../../services/cocktail/cocktail.service';
 import { Recipe } from '../../../data/cocktail-recipes';
-import { Func } from '../../../utils/functions';
 
 @Component({
     selector: 'app-recipe',
@@ -15,7 +14,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
     cocktailSubscription: Subscription;
     recipe: Recipe;
 
-    constructor(private cocktailService: CocktailService, private func: Func) {}
+    constructor(private cocktailService: CocktailService) {}
 
     ngOnInit() {
         this.cocktailSubscription = this.cocktailService.selectedCocktail.subscribe(cocktailInfo => {

@@ -29,6 +29,7 @@ export class Maths {
 
         let den = 1;
 
+        // multiply by 10 until number is no longer a decimal
         while (this.isDecimal(num)) {
             num *= 10;
             den *= 10;
@@ -36,6 +37,7 @@ export class Maths {
 
         const gcd = this.gcd(num, den);
 
+        // divide by the greatest common denominator
         num /= gcd;
         den /= gcd;
 
