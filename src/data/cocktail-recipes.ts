@@ -84,7 +84,7 @@ const cocktailInfos = {
     [cocktails.BLOODY_MARY]: new CocktailInfo(
         cocktails.BLOODY_MARY,
         {[alcohols.VODKA]: 1},
-        {[ingredients.TOMATO_JUICE]: 3, [ingredients.LEMON_JUICE]: '1 lemon, juice of', [ingredients.WORCESTERSHIRE_SAUCE]: '1/2 teaspoon', [ingredients.TABASCO_SAUCE]: '3 drops', [ingredients.PEPPER]: 'some', [ingredients.SALT]: 'some'},
+        {[ingredients.TOMATO_JUICE]: 3, [ingredients.LEMON_JUICE]: '1 lemon worth of', [ingredients.WORCESTERSHIRE_SAUCE]: '1/2 teaspoon', [ingredients.TABASCO_SAUCE]: '3 drops', [ingredients.PEPPER]: 'some', [ingredients.SALT]: 'some'},
         'Rub lemon around rim of glass then twist on a plate of salt so it sticks. Mix ingredients and pour in glass. Garnish with lemon wedge, celery stalk and/or green onion.'
         ),
 

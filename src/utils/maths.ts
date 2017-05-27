@@ -1,12 +1,12 @@
 export class Maths {
-    private recurringDecimalFractionMap = [
+    private static recurringDecimalFractionMap = [
         {decimal: 0.166, frac: '1/6'},
         {decimal: 0.333, frac: '1/3'},
         {decimal: 0.666, frac: '2/3'},
         {decimal: 0.833, frac: '5/6'}
     ];
 
-    private screenAndConvertRecurringDecimal(num: number) {
+    private static screenAndConvertRecurringDecimal(num: number) {
         const error = 0.01;
         for (const item of this.recurringDecimalFractionMap) {
             if (Math.abs(num - item.decimal) < error) {
@@ -16,7 +16,19 @@ export class Maths {
         return num;
     }
 
-    convertDecimalToFraction(num: number | string): string {
+    private static isDecimal(num: number): boolean {
+        return (num % 1 !== 0);
+    };
+
+    // returns the greatest common denominator
+    private static gcd(a, b): number {
+        if (b === 0) {
+            return a;
+        }
+        return this.gcd(b, a % b);
+    };
+
+    static convertDecimalToFraction(num: number | string): string {
         if (!num || typeof num !== 'number') {
             return null;
         }
@@ -42,17 +54,5 @@ export class Maths {
         den /= gcd;
 
         return (den === 1) ? `${num}` : `${num}/${den}`;
-    };
-
-    isDecimal(num: number): boolean {
-        return (num % 1 !== 0);
-    };
-
-    // returns the greatest common denominator
-    gcd(a, b): number {
-        if (b === 0) {
-            return a;
-        }
-        return this.gcd(b, a % b);
     };
 }

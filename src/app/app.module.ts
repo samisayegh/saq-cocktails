@@ -12,9 +12,6 @@ import { RecipeComponent } from './components/recipe/recipe.component';
 import { IngredientComponent } from './components/ingredient/ingredient.component';
 
 import { CocktailService } from './services/cocktail/cocktail.service';
-import { SaqService } from './services/saq/saq.service';
-
-import { Maths } from '../utils/maths';
 
 // Rxjs operators
 import 'rxjs/add/operator/map';
@@ -37,9 +34,7 @@ import 'rxjs/add/operator/catch';
     MaterialModule
   ],
   providers: [
-    CocktailService,
-    SaqService,
-    Maths
+    CocktailService
   ],
   bootstrap: [AppComponent]
 })
