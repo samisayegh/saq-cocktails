@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { CocktailService } from '../../services/cocktail/cocktail.service';
-import { Recipe } from '../../../data/cocktail-recipes';
 
 @Component({
     selector: 'app-recipe',
@@ -12,7 +11,7 @@ import { Recipe } from '../../../data/cocktail-recipes';
 
 export class RecipeComponent implements OnInit, OnDestroy {
     cocktailSubscription: Subscription;
-    recipe: Recipe;
+    recipe: Type.Recipe;
 
     constructor(private cocktailService: CocktailService) {}
 

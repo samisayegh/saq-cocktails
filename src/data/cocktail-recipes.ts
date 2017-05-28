@@ -49,29 +49,15 @@ const cocktails = {
     SIDECAR: 'Sidecar'
 };
 
-interface IngredientObj {
-    [key: string]: string | number;
-}
-
-interface Ingredient {
-    name: string;
-    quantity: string | number;
-}
-
-interface Recipe {
-    alcohols: Ingredient[];
-    other: Ingredient[];
-};
-
 class CocktailInfo {
     name: string;
-    recipe: Recipe = {
+    recipe: Type.Recipe = {
         alcohols: null,
         other: null
     };
     instructions: string;
 
-    constructor(name: string, alcoholIngredients: IngredientObj, other: IngredientObj, instructions: string) {
+    constructor(name: string, alcoholIngredients: Type.IngredientObj, other: Type.IngredientObj, instructions: string) {
         this.name = name;
         this.recipe.alcohols = Func.ingredientObjToArray(alcoholIngredients) ;
         this.recipe.other = Func.ingredientObjToArray(other);
@@ -165,4 +151,4 @@ const cocktailInfos = {
         )
 };
 
-export { cocktails, cocktailInfos, CocktailInfo, Recipe }
+export { cocktails, cocktailInfos, CocktailInfo }
