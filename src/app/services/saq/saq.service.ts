@@ -9,7 +9,7 @@ const token = Config.COVEO_ACCESS_TOKEN;
 
 @Injectable()
 export class SaqService {
-    url: string = `https://cloudplatform.coveo.com/rest/search?access_token=${token}&`;
+    url = `https://cloudplatform.coveo.com/rest/search?access_token=${token}&`;
     results: Type.Result[] = [];
     selectedResult: BehaviorSubject<Type.Result> = new BehaviorSubject<Type.Result>(null);
 
@@ -27,14 +27,14 @@ export class SaqService {
             (response: Type.CoveoResponse) => {
                 if (response) {
                     this.results = response.results;
-                    this.updateSelectedResult(0)
+                    this.updateSelectedResult(0);
                 }
         });
     }
 
     updateSelectedResult(index: number) {
-        let selected = this.results[index];
-        
+        const selected = this.results[index];
+
         if (selected) {
             this.selectedResult.next(selected);
         }

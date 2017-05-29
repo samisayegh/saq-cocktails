@@ -14,7 +14,7 @@ import { Maths } from '../../../utils/maths';
 export class RecipeComponent implements OnInit, OnDestroy {
     cocktailSubscription: Subscription;
     cocktailInfo: CocktailInfo;
-    selectedAlcohols: {[key: string]: Type.Result} = {}
+    selectedAlcohols: {[key: string]: Type.Result} = {};
 
     constructor(private cocktailService: CocktailService) {}
 
@@ -29,21 +29,27 @@ export class RecipeComponent implements OnInit, OnDestroy {
         this.cocktailSubscription.unsubscribe();
     }
 
+    private get alcoholPriceTotal(): number {
+        let total = 0;
+
+        Object.keys(this.selectedAlcohols).forEach(key => {
+            const selected = this.selectedAlcohols[key];
+
+            if (selected) {
+                total += selected.raw.tpprixnum;
+            }
+        });
+
+        return total;
+    }
+
     // aggregates selected alcohols from all alcohol ingredient-card components
     updateSelectedAlcohols(alcohol: Type.SelectedAlcohol) {
         this.selectedAlcohols[alcohol.name] = alcohol.selected;
     }
 
-    alcoholPriceTotal(): string {
-        let total = 0;
 
-        for(const key in this.selectedAlcohols) {
-            const selected = this.selectedAlcohols[key];
-            if (selected) {
-                total += selected.raw.tpprixnum;
-            }
-        }
-
-        return `Total cost of your alcohol selections is $${Maths.formatDecimalPrice(total)}`;
+    priceTotalString(): string {
+        return `Total cost of your alcohol selections is $${Maths.formatAsPrice(this.alcoholPriceTotal)}`;
     }
 }

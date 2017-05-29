@@ -22,7 +22,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
     @Output() alcoholSelected: EventEmitter<Type.SelectedAlcohol> = new EventEmitter();
 
     subscription: Subscription = new Subscription();
-    selectedResultIndex: number = 0;
+    selectedResultIndex = 0;
     selectedResult: Type.Result = null;
 
     constructor(private saqService: SaqService) {}
@@ -31,7 +31,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         this.subscription = this.saqService.selectedResult
         .subscribe(result => {
             this.selectedResult = result;
-            this.alcoholSelected.emit({name: this.name, selected: result})
+            this.alcoholSelected.emit({name: this.name, selected: result});
         });
 
         this.saqService.listProducts(this.name);
@@ -50,7 +50,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
 
         return `${formattedNum} ${this.name}`;
     }
-    
+
     getImageUrl(): string {
         let imageUrl = null;
 
@@ -64,24 +64,21 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         }
 
         return imageUrl;
-        // return (imageUrl) ? imageUrl : INGREDIENT_PHOTOS_PATH + 'mint_leaves.jpg';        
     }
 
 
     updateSelectedResult(num: number) {
         const results = this.saqService.results;
-        if (!results) {return}
+        if (!results) {return; }
 
         const maxIndex = results.length - 1;
         const newIndex = this.selectedResultIndex + num;
 
         if (newIndex > maxIndex) {
             this.selectedResultIndex = 0;
-        }
-        else if (newIndex < 0) {
+        } else if (newIndex < 0) {
             this.selectedResultIndex = maxIndex;
-        }
-        else {
+        } else {
             this.selectedResultIndex = newIndex;
         }
 

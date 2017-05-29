@@ -56,8 +56,7 @@ export class Maths {
         return (den === 1) ? `${num}` : `${num}/${den}`;
     };
 
-    // adds trailing to a decimal price
-    static formatDecimalPrice(num: number): string {
-        return ((num * 100)/100).toFixed(2);
+    static formatAsPrice(num: number): string {
+        return ((num * 100) / 100).toFixed(2);
     }
 }
