@@ -14,7 +14,7 @@ declare module Type {
 		other: Ingredient[];
 	}
 
-	export interface CoveoResult {
+	export interface CoveoResponse {
 		apiVersion: number;
 		duration: number;
 		groupByResults: any[];
@@ -113,5 +113,10 @@ declare module Type {
 		tpregion: string;
 		tpthumbnailuri: string;
 		urihash: string;
+	}
+
+	export interface SelectedAlcohol {
+		name: string;
+		selected: Result;
 	}
 }

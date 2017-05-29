@@ -6,7 +6,7 @@ export class Maths {
         {decimal: 0.833, frac: '5/6'}
     ];
 
-    private static screenAndConvertRecurringDecimal(num: number) {
+    private static convertIfRecurringDecimal(num: number) {
         const error = 0.01;
         for (const item of this.recurringDecimalFractionMap) {
             if (Math.abs(num - item.decimal) < error) {
@@ -34,7 +34,7 @@ export class Maths {
         }
 
         // if a recurring decimal, map to a fraction
-        const fraction = this.screenAndConvertRecurringDecimal(num);
+        const fraction = this.convertIfRecurringDecimal(num);
         if (typeof fraction === 'string') {
             return fraction;
         }
@@ -55,4 +55,9 @@ export class Maths {
 
         return (den === 1) ? `${num}` : `${num}/${den}`;
     };
+
+    // adds trailing to a decimal price
+    static formatDecimalPrice(num: number): string {
+        return ((num * 100)/100).toFixed(2);
+    }
 }

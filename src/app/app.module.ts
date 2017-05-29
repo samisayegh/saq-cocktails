@@ -9,7 +9,8 @@ import { MaterialModule } from '../material/material.module';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import { IngredientComponent } from './components/ingredient/ingredient.component';
+import { IngredientCardComponent } from './components/ingredient-card/ingredient-card.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
 
 import { CocktailService } from './services/cocktail/cocktail.service';
 
@@ -25,7 +26,8 @@ import 'rxjs/add/operator/catch';
     AppComponent,
     SearchBarComponent,
     RecipeComponent,
-    IngredientComponent
+    IngredientCardComponent,
+    InfoCardComponent
   ],
   imports: [
     BrowserModule,
