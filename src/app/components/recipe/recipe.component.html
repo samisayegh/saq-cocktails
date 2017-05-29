@@ -1,8 +1,14 @@
-<div class='recipe-component' *ngIf="recipe">
+<div class='recipe-component' *ngIf="cocktailInfo">
 	<div class="row">
-		<app-ingredient *ngFor="let alcohol of recipe.alcohols" [isAlcohol]="true" [name]="alcohol.name" [quantity]="alcohol.quantity"></app-ingredient>
+		<app-ingredient-card *ngFor="let alcohol of cocktailInfo.recipe.alcohols" [isAlcohol]="true" [name]="alcohol.name" [quantity]="alcohol.quantity" (alcoholSelected)="updateSelectedAlcohols($event)"></app-ingredient-card>
 	</div>
 	<div class="row">
-		<app-ingredient *ngFor="let other of recipe.other" [isAlcohol]="false" [name]="other.name" [quantity]="other.quantity"></app-ingredient>
+		<app-ingredient-card *ngFor="let other of cocktailInfo.recipe.other" [isAlcohol]="false" [name]="other.name" [quantity]="other.quantity"></app-ingredient-card>
+	</div>
+	<div class="row">
+		<app-info-card [title]="'Preparation Instructions'" [infos]="[cocktailInfo.instructions]"></app-info-card>
+	</div>
+	<div class="row">
+		<app-info-card [title]="'Summary'" [infos]="[alcoholPriceTotal()]"></app-info-card>
 	</div>
 </div>
