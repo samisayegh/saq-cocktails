@@ -1,0 +1,39 @@
+md-card {
+	width: 200px;
+	text-align: center;
+}
+
+.alcohol-card {
+	height: 360px;
+}
+
+.ingredient-card {
+	height: 256px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.image {
+	/*overflow: inherit;*/
+	padding-top: 24px;
+}
+
+img {
+	width: auto;
+	max-height: 160px;
+}
+
+.alcohol-info {
+	height: 160px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.alcohol-info .details {
+	height: 16px;
+	margin: 16px 0;
+	display: flex;
+	justify-content: space-around;
+}
