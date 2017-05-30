@@ -63,6 +63,17 @@ class CocktailInfo {
         this.recipe.other = Func.ingredientObjToArray(other);
         this.instructions = instructions;
     }
+
+    // searches alcohols in recipe by name and returns ingredient if found
+    getAlcoholIngredient(name: string): Type.Ingredient {
+        for (const alcohol of this.recipe.alcohols) {
+            if (alcohol.name === name) {
+                return alcohol;
+            }
+        }
+
+        return null;
+    }
 }
 
 // All recipe numbers are in ounces. If a number is not in ounces, it is stored as a string.

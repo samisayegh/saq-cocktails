@@ -1,3 +1,11 @@
+import { Func } from '../utils/functions';
+
+const UNITS = {
+    MILLILITRES: 'ml',
+    LITRES: 'L'
+};
+const OUNCE_MILLILITRE_CONV = 29.5735;
+
 export class Maths {
     private static recurringDecimalFractionMap = [
         {decimal: 0.166, frac: '1/6'},
@@ -58,5 +66,37 @@ export class Maths {
 
     static formatAsPrice(num: number): string {
         return ((num * 100) / 100).toFixed(2);
+    }
+
+    static convertLitresToOunces(vol: string): number {
+        vol = Func.replaceCommasWithPeriods(vol);
+
+        // determine units
+        let units = null;
+
+        if (vol.indexOf(UNITS.MILLILITRES) !== -1) {
+            units = UNITS.MILLILITRES;
+        } else if (vol.indexOf(UNITS.LITRES) !== -1) {
+            units = UNITS.LITRES;
+        } else {
+            return -1;
+        }
+
+        // extract number from string
+        let volume = parseFloat(vol);
+
+        if (isNaN(volume)) {
+            return -1;
+        }
+        // convert to ml if needed
+        if (units === UNITS.LITRES) {
+            volume *= 1000;
+        }
+
+        // convert ml to ounces
+        const ounces = (volume / OUNCE_MILLILITRE_CONV);
+
+        // round to two decimal places
+        return (Math.round(ounces * 100) / 100);
     }
 }

@@ -119,4 +119,9 @@ declare module Type {
         name: string;
         selected: Result;
     }
+
+    export interface AlcoholVolume {
+        name: string;
+        vol: number;
+    }
 }

@@ -8,4 +8,8 @@ export class Func {
             return [];
         }
     };
+
+    static replaceCommasWithPeriods(input: string): string {
+        return input.replace(',', '.');
+    }
 }
