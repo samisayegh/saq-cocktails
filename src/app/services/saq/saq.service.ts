@@ -21,7 +21,7 @@ export class SaqService {
 
     listProducts(name: string) {
         console.log(`listing products with name ${name}`);
-        return this.http.get(this.url + `q=@tpcategorie==${name}`)
+        return this.http.get(this.url + `q=${name}`)
         .map(res => res.json())
         .subscribe(
             (response: Type.CoveoResponse) => {

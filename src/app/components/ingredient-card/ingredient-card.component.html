@@ -1,15 +1,17 @@
-<md-card class="ingredient-card-component" [ngClass]="isAlcohol ? 'alcohol-card' : 'ingredient-card'">
-	<!-- <md-card-header>{{ quantity }}</md-card-header> -->
-	<md-card-title>{{formattedIngredientTitle()}}</md-card-title>
+<md-card class="ingredient-card-component" [id]="id" [ngClass]="isAlcohol ? 'alcohol-card' : 'ingredient-card'">
+	<md-card-title>
+		<div class="title-text">{{formattedIngredientTitle()}}</div>
+	</md-card-title>
 	<div class="image">
 		<img md-card-image [src]="getImageUrl()">
 	</div>
 	<section class="alcohol-info" *ngIf="selectedResult">
-		<h4>{{selectedResult.title}}</h4>
+		<h4 class="alcohol-bottle-name">{{selectedResult.title || 'N/A'}}</h4>
+		<!-- div keeps details and md-card-actions fixed to end of card -->
 		<div>
 			<div class="details">
-				<span>{{selectedResult.raw.tpformat}}</span>
-				<span>{{selectedResult.raw.tpprixnormal}}</span>
+				<span>{{selectedResult.raw.tpformat || 'N/A'}}</span>
+				<span>{{selectedResult.raw.tpprixnormal || 'N/A'}}</span>
 			</div>
 			<md-card-actions>
 				<button md-raised-button [color]="'accent'" (click)="updateSelectedResult(-1)"><i class="material-icons">chevron_left</i></button>

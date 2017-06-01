@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { SaqService } from '../../services/saq/saq.service';
+import { Func } from '../../../utils/functions';
 import { Maths } from '../../../utils/maths';
 
 const INGREDIENT_PHOTOS_PATH = '../../../assets/ingredient-photos/';
@@ -15,12 +16,15 @@ const INGREDIENT_PHOTOS_PATH = '../../../assets/ingredient-photos/';
 })
 
 export class IngredientCardComponent implements OnInit, OnDestroy {
+    @Input() index: number;
     @Input() isAlcohol: boolean;
     @Input() name: string;
     @Input() quantity: number | string;
     // emits selected alcohol for aggregation in parent recipe component
     @Output() alcoholSelected: EventEmitter<Type.SelectedAlcohol> = new EventEmitter();
 
+    // IngredientCard component instances are uniquely identified for jQuery by an id composed of "alcohol/ingredient + index"
+    id: string;
     subscription: Subscription = new Subscription();
     selectedResultIndex = 0;
     selectedResult: Type.Result = null;
@@ -28,17 +32,30 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
     constructor(private saqService: SaqService) {}
 
     ngOnInit() {
-        this.subscription = this.saqService.selectedResult
-        .subscribe(result => {
-            this.selectedResult = result;
-            this.alcoholSelected.emit({name: this.name, selected: result});
-        });
+        this.id = (this.isAlcohol) ? 'alcohol' + this.index : 'ingredient' + this.index;
+        this.resizeCardText();
 
-        this.saqService.listProducts(this.name);
+        if (this.isAlcohol) {
+            this.subscription = this.saqService.selectedResult
+            .subscribe(result => {
+                this.selectedResult = result;
+                this.alcoholSelected.emit({name: this.name, selected: result});
+            });
+
+            this.saqService.listProducts(this.name);
+        }
     }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+
+    // resizing card title and alcohol bottle name respectively
+    resizeCardText() {
+        const maxHeight = (this.isAlcohol) ? 28 : 56;
+
+        Func.resizeText(`#${this.id} .title-text`, maxHeight);
+        Func.resizeText(`#${this.id} .alcohol-bottle-name`, 36);
     }
 
     formattedIngredientTitle(): string {
