@@ -40,7 +40,7 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the search bar', async(() => {
+  it('should create a search bar', async(() => {
     expect(de.componentInstance).toBeTruthy();
   }));
 

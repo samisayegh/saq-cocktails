@@ -1,4 +1,4 @@
-import $ from 'jquery';
+declare const $: any;
 
 export class Func {
     static ingredientObjToArray(obj): {name: string, quantity: string | number}[] {

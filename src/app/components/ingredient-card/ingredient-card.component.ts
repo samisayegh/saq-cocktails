@@ -18,7 +18,7 @@ const INGREDIENT_PHOTOS_PATH = '../../../assets/ingredient-photos/';
 export class IngredientCardComponent implements OnInit, OnDestroy {
     @Input() index: number;
     @Input() isAlcohol: boolean;
-    @Input() name: string;
+    @Input() name: string = '';
     @Input() quantity: number | string;
     // emits selected alcohol for aggregation in parent recipe component
     @Output() alcoholSelected: EventEmitter<Type.SelectedAlcohol> = new EventEmitter();
@@ -80,7 +80,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
             imageUrl = (INGREDIENT_PHOTOS_PATH + fileName);
         }
 
-        return imageUrl;
+        return (imageUrl) ? imageUrl : (INGREDIENT_PHOTOS_PATH + 'no_image.jpg');
     }
 
 

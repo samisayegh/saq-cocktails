@@ -12,6 +12,7 @@ module.exports = function (config) {
       require('@angular/cli/plugins/karma')
     ],
     files: [
+      { pattern: './node_modules/jquery/dist/jquery.min.js', watched: false },
       { pattern: './src/test.ts', watched: false },
       { pattern: './node_modules/@angular/material/prebuilt-themes/indigo-pink.css'}
     ],
