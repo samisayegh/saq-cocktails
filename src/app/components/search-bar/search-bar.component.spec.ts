@@ -1,14 +1,15 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AppModule } from '../../app.module';
 import { SearchBarComponent } from './search-bar.component';
 import { CocktailService } from '../../services/cocktail/cocktail.service';
+import { cocktails } from '../../../data/cocktail-recipes';
 
-// data
-import { cocktails, cocktailInfos } from '../../../data/cocktail-recipes';
+import { CocktailServiceStub } from '../../../test/stubs/cocktail-service.stub';
+
+
 
 let comp: SearchBarComponent;
 let fixture: ComponentFixture<SearchBarComponent>;
@@ -17,17 +18,10 @@ let cocktailService: CocktailService;
 
 describe('SearchBarComponent', () => {
   beforeEach(async(() => {
-    const CocktailServiceStub = {
-      cocktails: [cocktails.MOJITO],
-      selectedCocktail: new BehaviorSubject(null),
-      updateSelectedCocktail: (cocktailName: string) => {
-        CocktailServiceStub.selectedCocktail.next(cocktailInfos[cocktailName]);
-      }
-    };
 
     TestBed.configureTestingModule({
       imports: [ AppModule ],
-      providers: [{provide: CocktailService, useValue: CocktailServiceStub}]
+      providers: [{provide: CocktailService, useValue: new CocktailServiceStub([cocktails.MOJITO])}]
     }).compileComponents();
   }));
 

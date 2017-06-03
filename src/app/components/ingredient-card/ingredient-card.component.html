@@ -3,7 +3,7 @@
 		<div class="title-text">{{formattedIngredientTitle()}}</div>
 	</md-card-title>
 	<div class="image">
-		<img md-card-image [src]="getImageUrl()">
+		<img md-card-image *ngIf="imageUrl" [src]="imageUrl">
 	</div>
 	<section class="alcohol-info" *ngIf="selectedResult">
 		<h4 class="alcohol-bottle-name">{{selectedResult.title || 'N/A'}}</h4>
