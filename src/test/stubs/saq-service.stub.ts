@@ -14,8 +14,9 @@ export class SaqServiceStub {
         this.updateSelectedResult(0);
     }
 
-    updateSelectedResult(index) {
+    updateSelectedResult(index: number) {
         const selected = this.results[index];
+
         this.selectedResult.next(selected);
     }
 }

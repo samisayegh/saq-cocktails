@@ -13,6 +13,7 @@ module.exports = function (config) {
     ],
     files: [
       { pattern: './node_modules/jquery/dist/jquery.min.js', watched: false },
+      { pattern: './src/assets/ingredient-photos/*', watched: false, included: false, served: true },
       { pattern: './src/test.ts', watched: false },
       { pattern: './node_modules/@angular/material/prebuilt-themes/indigo-pink.css'}
     ],

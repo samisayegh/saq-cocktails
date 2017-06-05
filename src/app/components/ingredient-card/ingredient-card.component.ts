@@ -2,11 +2,10 @@ import { Component, Input, Output, EventEmitter, OnInit, OnDestroy} from '@angul
 import { Subscription } from 'rxjs/Subscription';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import { Config } from '../../../cfg/config';
 import { SaqService } from '../../services/saq/saq.service';
 import { Func } from '../../../utils/functions';
 import { Maths } from '../../../utils/maths';
-
-const INGREDIENT_PHOTOS_PATH = '../../../assets/ingredient-photos/';
 
 @Component({
     selector: 'app-ingredient-card',
@@ -34,7 +33,14 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.id = (this.isAlcohol) ? 'alcohol' + this.index : 'ingredient' + this.index;
         this.resizeCardText();
+        this.subscribeToSaqResult();
+    }
 
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+
+    subscribeToSaqResult() {
         if (this.isAlcohol) {
             this.subscription = this.saqService.selectedResult
             .subscribe(result => {
@@ -44,10 +50,6 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
 
             this.saqService.listProducts(this.name);
         }
-    }
-
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
     }
 
     // resizing card title and alcohol bottle name respectively
@@ -68,7 +70,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         return `${formattedNum} ${this.name}`;
     }
 
-    get imageUrl(): string {
+    get imageUrl() {
         let imageUrl = null;
 
         if (this.isAlcohol && this.selectedResult) {
@@ -76,11 +78,12 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         }
 
         if (!this.isAlcohol) {
+            // TODO: handle 404 errors somehow
             const fileName = this.name.toLowerCase().replace(' ', '_') + '.jpg';
-            imageUrl = (INGREDIENT_PHOTOS_PATH + fileName);
+            imageUrl = (Config.INGREDIENT_PHOTOS_PATH + fileName);
         }
 
-        return imageUrl;
+        return (imageUrl) ? imageUrl : (Config.INGREDIENT_PHOTOS_PATH + 'no_image.jpg');
     }
 
 
