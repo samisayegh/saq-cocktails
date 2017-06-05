@@ -129,6 +129,6 @@ describe('IngredientCardComponent', () => {
       const alcoholInfoDe = de.query(By.css('.alcohol-info'));
 
       expect(alcoholInfoDe).toBeNull();
-    })
+    });
   });
 });
