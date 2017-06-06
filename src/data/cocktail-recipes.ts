@@ -162,4 +162,4 @@ const cocktailInfos = {
         )
 };
 
-export { cocktails, cocktailInfos, CocktailInfo }
+export { alcohols, cocktails, cocktailInfos, CocktailInfo }

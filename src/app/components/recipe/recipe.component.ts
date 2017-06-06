@@ -29,7 +29,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
         this.cocktailSubscription.unsubscribe();
     }
 
-    private get totalBottlePrice(): number {
+    get totalBottlePrice(): number {
         let total = 0;
 
         Object.keys(this.selectedAlcohols).forEach(key => {
@@ -44,7 +44,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
     }
 
     // determines the smallest SAQ bottle volume relative to recipe requirements and the number of cocktails that can be made.
-    private get numberOfCocktails(): number {
+    get numberOfCocktails(): number {
         // dividing SAQ bottle volumes by cocktail recipe volumes
         const normalizedAlcoholVolumes = this.selectedAlcoholVolumes().map(alcohol => {
             const alcoholIngredient = this.cocktailInfo.getAlcoholIngredient(alcohol.name);
@@ -65,7 +65,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
     }
 
     // sums the costs of all alcohol ingredients needed for the cocktail.
-    private get cocktailCost(): number {
+    get costPerCocktail(): number {
         const costOfAlcoholIngredients = this.selectedAlcoholVolumes().map(alcohol => {
             const alcoholIngredient = this.cocktailInfo.getAlcoholIngredient(alcohol.name);
 
@@ -84,7 +84,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
         // add all numbers in the array and return total
         const totalCost = costOfAlcoholIngredients.reduce((a, b) => a + b, 0);
 
-        return (typeof totalCost === 'number') ? totalCost : -1;
+        return (typeof totalCost === 'number') ? Maths.twoDecimalPlaces(totalCost) : -1;
     }
 
     // returns object array of selected alcohol names and volumes in ounces
@@ -112,17 +112,17 @@ export class RecipeComponent implements OnInit, OnDestroy {
         this.selectedAlcohols[alcohol.name] = alcohol.selected;
     }
 
-    priceTotalString(): string {
+    private priceTotalString(): string {
         return `Total cost of your alcohol selections is $${Maths.formatAsPrice(this.totalBottlePrice)}`;
     }
 
-    noOfCocktailsString(): string {
+    private noOfCocktailsString(): string {
         const numOfCocktails = this.numberOfCocktails;
         return (numOfCocktails !== -1) ? `You will be able to make ${numOfCocktails} ${this.cocktailInfo.name}s!` : null;
     }
 
-    cocktailCostString(): string {
-        const cost = this.cocktailCost;
+    private costPerCocktailString(): string {
+        const cost = this.costPerCocktail;
         return (cost !== -1) ? `That is a cost of $${Maths.formatAsPrice(cost)} per cocktail!` : null;
     }
 }

@@ -7,7 +7,7 @@ import { AppModule } from '../../app.module';
 import { IngredientCardComponent } from './ingredient-card.component';
 import { SaqService } from '../../services/saq/saq.service';
 
-import { SaqServiceStub } from '../../../test/stubs/saq-service.stub';
+import { SaqServiceStub } from '../../../test/stubs/saq.service.stub';
 import { SaqAlcoholResult } from '../../../test/saq-cocktail-test.classes';
 
 // passed as input to ingredient-card component
@@ -19,8 +19,8 @@ const ingredient = {
 const alcoholImageUrl = Config.INGREDIENT_PHOTOS_PATH + 'mint_leaves.jpg';
 
 // mock SAQ service results
-const alcohol1 = new SaqAlcoholResult('alcohol 1', '500 ml', '100', alcoholImageUrl);
-const alcohol2 = new SaqAlcoholResult('alcohol 2', '750 ml', '200', alcoholImageUrl);
+const alcohol1 = new SaqAlcoholResult('alcohol 1', '500 ml', 100, alcoholImageUrl);
+const alcohol2 = new SaqAlcoholResult('alcohol 2', '750 ml', 200, alcoholImageUrl);
 
 
 
@@ -74,8 +74,8 @@ describe('IngredientCardComponent', () => {
   describe('Alcohol Ingredient Card', () => {
 
     beforeEach(async(() => {
-     comp.isAlcohol = true;
-     fixture.detectChanges();
+      comp.isAlcohol = true;
+      fixture.detectChanges();
     }));
 
     it('displays the image of the alcohol', () => {

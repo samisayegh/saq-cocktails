@@ -97,6 +97,10 @@ export class Maths {
         const ounces = (volume / OUNCE_MILLILITRE_CONV);
 
         // round to two decimal places
-        return (Math.round(ounces * 100) / 100);
+        return Maths.twoDecimalPlaces(ounces);
+    }
+
+    static twoDecimalPlaces(num: number): number {
+        return (Math.round(num * 100) / 100);
     }
 }
