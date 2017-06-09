@@ -36,13 +36,6 @@ declare module Type {
     }
 
     export interface Result {
-        // ClickUri: string;
-        // Excerpt: string;
-        // FirstSentences: string;
-        // PrintableUri: string;
-        // Title: string;
-        // UniqueId: string;
-        // Uri: string;
         childResults: any[];
         clickUri: string;
         excerpt: string;

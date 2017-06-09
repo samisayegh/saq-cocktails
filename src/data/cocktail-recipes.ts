@@ -14,6 +14,12 @@ const alcohols = {
     WHITE_RUM: 'White rum'
 };
 
+// French translations of alcohol names, needed for SAQ Service query
+const alcoholsFR = {
+    [alcohols.DARK_RUM]: 'Rhum brun',
+    [alcohols.WHITE_RUM]: 'Rhum blanc'
+};
+
 const ingredients = {
     ANGOSTURA_BITTERS: 'Angostura bitters',
     CLUB_SODA: 'Club soda',
@@ -162,4 +168,4 @@ const cocktailInfos = {
         )
 };
 
-export { alcohols, cocktails, cocktailInfos, CocktailInfo }
+export { alcohols, alcoholsFR, cocktails, cocktailInfos, CocktailInfo }

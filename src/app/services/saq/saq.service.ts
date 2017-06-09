@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Config } from '../../../cfg/config';
+import { alcoholsFR } from '../../../data/cocktail-recipes';
 
 const token = Config.COVEO_ACCESS_TOKEN;
 
@@ -19,17 +20,22 @@ export class SaqService {
         }
     }
 
-    listProducts(name: string) {
-        console.log(`listing products with name ${name}`);
-        return this.http.get(this.url + `q=${name}`)
+    listProducts(category: string) {
+        // translating alcohol category to French for Coveo API
+        category = alcoholsFR[category] || category;
+
+        return this.http.get(this.url + `q=${category}`)
         .map(res => res.json())
         .subscribe(
             (response: Type.CoveoResponse) => {
                 if (response) {
                     this.results = response.results;
                     this.updateSelectedResult(0);
+                } else {
+                    this.clearResults();
                 }
-        });
+            },
+            err => this.clearResults());
     }
 
     updateSelectedResult(index: number) {
@@ -38,5 +44,10 @@ export class SaqService {
         if (selected) {
             this.selectedResult.next(selected);
         }
+    }
+
+    private clearResults() {
+        this.results = [];
+        this.selectedResult.next(null);
     }
 }
