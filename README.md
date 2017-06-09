@@ -26,17 +26,17 @@ All recipes are stored in `src/data/cocktail-recipes`. To add a new cocktail rec
 2. Add the alcohol ingredients to the `alcohols` object if they are not already there. If the alcohol has a different name in French, also add an entry to the `alcoholsFR` object. This is needed because queries to the Coveo API need to be in French.
 3. Add non-alcoholic ingredients to the `ingredients` object if they are not already there.
 4. Add your recipe to the `cocktailInfos` object, by creating a new instance of the `CocktailInfo` class and associating it to your cocktail.
-- Please use a number to describe the quantity of an alcohol ingredient.
-- Non-alcoholic ingredient quantities can be a number or a string.
-- All numbers should be in ounces.
+	- Please use a number to describe the quantity of an alcohol ingredient.
+	- Non-alcoholic ingredient quantities can be a number or a string.
+	- All numbers should be in ounces.
 
 e.g. Mojito recipe
 
 	[cocktails.MOJITO]: new CocktailInfo(
-	cocktails.MOJITO, // cocktail name
-	{[alcohols.WHITE_RUM]: 2}, // alcohol ingredients
-	{[ingredients.CLUB_SODA]: 1, [ingredients.LIME_JUICE]: 1,  [ingredients.MINT_LEAVES]: '12', [ingredients.SUGAR]: '2 teaspoons of'}, // non-alcoholic ingredients
-	'Fill a glass with ice. Crush the mint leaves to release their oils and flavour. Stir the ingredients together until the sugar has dissolved and pour into the chilled glass.') // preparation instructions
+		cocktails.MOJITO, // cocktail name
+		{[alcohols.WHITE_RUM]: 2}, // alcohol ingredients
+		{[ingredients.CLUB_SODA]: 1, [ingredients.LIME_JUICE]: 1,  [ingredients.MINT_LEAVES]: '12', [ingredients.SUGAR]: '2 teaspoons of'}, // non-alcoholic ingredients
+		'Fill a glass with ice. Crush the mint leaves to release their oils and flavour. Stir the ingredients together until the sugar has dissolved and pour into the chilled glass.') // preparation instructions
 
 5. If you added non-alcoholic ingredients, add a .jpg or .jpeg image for each new ingredient to the `src/assets/ingredient-photos` folder. Make sure the image name matches the lowercase name of the ingredient as written in the `ingredients` object, with spaces replaced with underscores.
 
