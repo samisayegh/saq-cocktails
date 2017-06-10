@@ -1,6 +1,6 @@
 # SaqCocktails
 
-Find recipes for your favourite cocktails, with alcohols suggested by SAQ and powered by a Coveo search API. Alter your alcohol selections to fit your budget, find out how many drinks you will be able to make, and your cost per drink!
+Find recipes for your favourite cocktails, with alcohols suggested by SAQ powered by a Coveo search API. Alter your alcohol selections to fit your budget, find out how many drinks you will be able to make, and your cost per drink!
 
 ## Setup
 
@@ -8,17 +8,49 @@ Find recipes for your favourite cocktails, with alcohols suggested by SAQ and po
 2. Install dependencies by running `npm i --no-optional`.
 3. In `src/cfg/config.ts`, you will need to add a value for `COVEO_ACCESS_TOKEN` so calls to the Coveo API work.
 
-## Development
-
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Adding More Recipes
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+
+## Application Structure
+
+### Components
+
+The application is built using four components having the following relationship:
+
+```
+App
+│
+└───Search Bar
+│
+└───Recipe
+    │
+	└───Ingredient Card
+	│
+	└───Info Card
+```
+
+### Services
+
+The application uses two services:
+
+1. Cocktail Service: displays a list of cocktails, and tracks the one that has been selected. The service retrieves data locally from `src/data/cocktail-recipes`; it  does not communicate with external parties.
+
+2. Saq Service: communicates with SAQ via a Coveo search API, retrieving results for a queried alcohol category. Every alcohol Ingredient Card component subscribes to a unique Saq service instance.
+
+### Flow
+
+- A user searches for a cocktail recipe using the `Search Bar component` powered by `Cocktail service`.
+- Upon making a selection, an event is emitted by a `Cocktail service` observable with the selected cocktail recipe.
+- The `Recipe component` intercepts the event and generates as many `Ingredient Card components` as needed by the recipe. It specifies whether ingredients are alcoholic or non-alcoholic. It also creates the first `Info Card component` containing instructions on how to perpare the cocktail.
+- `Ingredient Card component` displays all information related to its assigned ingredient, including the name, quantity and an image. In addition, for alcoholic ingredients, it will retrieve results using `Saq service`, and provide navigation buttons to switch between them. The active reult is sent back and aggregated in `Recipe component`.
+- `Recipe component` uses the aggregated alcohol results to calculate the total price of alcohol selections, the number of cocktails that can be made, and the price per cocktail. The information is diplayed in a second `Info Card component`.
+
+## Adding Recipes
 
 All recipes are stored in `src/data/cocktail-recipes`. To add a new cocktail recipe, you will need to:
 
@@ -41,6 +73,3 @@ e.g. Mojito recipe
 5. If you added non-alcoholic ingredients, add a .jpg or .jpeg image for each new ingredient to the `src/assets/ingredient-photos` folder. Make sure the image name matches the lowercase name of the ingredient as written in the `ingredients` object, with spaces replaced with underscores.
 
 e.g. The image for 'Lemon juice' should be labelled 'lemon_juice'.
-
-
-
