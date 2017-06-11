@@ -29,7 +29,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
         this.cocktailSubscription.unsubscribe();
     }
 
-    get totalBottlePrice(): number {
+    get totalAlcoholPrice(): number {
         let total = 0;
 
         Object.keys(this.selectedAlcohols).forEach(key => {
@@ -113,7 +113,8 @@ export class RecipeComponent implements OnInit, OnDestroy {
     }
 
     private priceTotalString(): string {
-        return `Total cost of your alcohol selections is $${Maths.formatAsPrice(this.totalBottlePrice)}`;
+        const total = this.totalAlcoholPrice;
+        return (total) ? `Total cost of your alcohol selections is $${Maths.formatAsPrice(total)}` : `We could not calculate a total for your selections.`;
     }
 
     private noOfCocktailsString(): string {

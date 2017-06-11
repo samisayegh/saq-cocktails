@@ -14,7 +14,7 @@ const alcohols = {
     WHITE_RUM: 'White rum'
 };
 
-// French translations of alcohol names, needed for SAQ Service query
+// French translations of alcohol names, needed for Saq service/Coveo API query
 const alcoholsFR = {
     [alcohols.DARK_RUM]: 'Rhum brun',
     [alcohols.WHITE_RUM]: 'Rhum blanc'

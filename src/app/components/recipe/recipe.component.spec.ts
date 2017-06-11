@@ -67,7 +67,7 @@ describe('RecipeComponent', () => {
     it('should calculate the total price of all the selected alcohols', () => {
         const bottlePrice = alcohol1.raw.tpprixnum;
 
-        expect(comp.totalBottlePrice).toEqual(bottlePrice);
+        expect(comp.totalAlcoholPrice).toEqual(bottlePrice);
     });
 
     it('should calculate the number of cockails that can be made', () => {
