@@ -38,7 +38,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
         const cocktailIndex = Math.round(rand * numOfCocktails);
         const cocktailName = this.cocktails[cocktailIndex];
 
-        this.selectCocktail(cocktailName);
+        (cocktailName !== this.query) ? this.selectCocktail(cocktailName) : this.randomCocktail();
     }
 
     selectCocktail(cocktailName: string) {

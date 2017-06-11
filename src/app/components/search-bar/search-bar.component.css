@@ -1,12 +1,8 @@
-.search-bar-component {
+md-grid-list {
 	display: flex;
 	justify-content: center;
 }
 
-md-grid-list {
-	min-width: 375px;
-}
-
 md-input-container {
-	min-width: 250px;
+	width: 216px;
 }
