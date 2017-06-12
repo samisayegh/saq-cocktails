@@ -1,7 +1,7 @@
 <div class="search-bar-component">
 	<md-grid-list cols="1">
 		<md-input-container>
-			<input type="text" mdInput [mdAutocomplete]="auto" [ngModel]="query" #q (ngModelChange)="queryUpdated(q.value)">
+			<input type="text" mdInput [mdAutocomplete]="auto" [ngModel]="query" #q (ngModelChange)="queryUpdated(q.value)" (keyup.enter)="selectCocktail(q.value || null)">
 			<md-placeholder>What would you like to drink?</md-placeholder>
 		</md-input-container>
 
