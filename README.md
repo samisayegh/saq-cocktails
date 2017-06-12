@@ -6,7 +6,8 @@ Find recipes for your favourite cocktails, with alcohols suggested by SAQ powere
 
 1. Clone the repo.
 2. Install dependencies by running `npm i --no-optional`.
-3. In `src/cfg/config.ts`, you will need to add a value for `COVEO_ACCESS_TOKEN` so calls to the Coveo API work.
+3. Install the angular CLI globally by running `npm i -g @angular/cli`.
+4. In `src/cfg/config.ts`, verify you have a valid value for `COVEO_ACCESS_TOKEN` so calls to the Coveo API work.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
