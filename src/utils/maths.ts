@@ -70,7 +70,7 @@ export class Maths {
 
     static convertLitresToOunces(vol: string): number {
         vol = Func.replaceCommasWithPeriods(vol);
-        
+
         // determine units
         let units = null;
 
@@ -106,7 +106,7 @@ export class Maths {
     }
 
     // determines the volume of a multipack (e.g. 4 X 330 ml should return 1320 ml)
-    static sanitizeMultiPackFormat(vol: string): string {
+    private static sanitizeMultiPackFormat(vol: string): string {
         const packSymbol = 'X';
 
         if (vol.indexOf(packSymbol) !== -1) {

@@ -2,6 +2,8 @@
 
 Find recipes for your favourite cocktails, with alcohols suggested by SAQ powered by a Coveo search API. Alter your alcohol selections to fit your budget, find out how many drinks you will be able to make, and your cost per drink!
 
+See it in action [here](https://saq-cocktails.herokuapp.com/).
+
 ## Setup
 
 1. Clone the repo.
@@ -14,6 +16,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+Run `ng lint` to lint the project.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 

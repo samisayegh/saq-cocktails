@@ -9,7 +9,7 @@ export class CocktailService {
     selectedCocktail: BehaviorSubject<CocktailInfo> = new BehaviorSubject<CocktailInfo>(null);
 
     updateSelectedCocktail(cocktail: string) {
-    	const selected = cocktailInfos[cocktail];
-    	this.selectedCocktail.next(selected || null);
+        const selected = cocktailInfos[cocktail];
+        this.selectedCocktail.next(selected || null);
     }
 }
