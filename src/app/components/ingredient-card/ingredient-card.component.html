@@ -6,7 +6,7 @@
 		<img md-card-image [src]="imageUrl">
 	</div>
 	<section class="alcohol-info" *ngIf="selectedResult">
-		<h4 class="alcohol-bottle-name">{{selectedResult.title || 'N/A'}}</h4>
+		<div class="alcohol-bottle-name"><h4>{{selectedResult.title || 'N/A'}}</h4></div>
 		<!-- div keeps details and md-card-actions fixed to end of card -->
 		<div>
 			<div class="details">

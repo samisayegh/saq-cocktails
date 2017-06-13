@@ -29,7 +29,7 @@ img {
 	justify-content: flex-end;
 }
 
-.alcohol-info h4 {
+.alcohol-info .alcohol-bottle-name {
 	height: 36px;
 }
 

@@ -22,10 +22,10 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
     // emits selected alcohol for aggregation in parent recipe component
     @Output() alcoholSelected: EventEmitter<Type.SelectedAlcohol> = new EventEmitter();
 
-    // IngredientCard component instances are uniquely identified for jQuery by an id composed of "alcohol/ingredient + index"
-    private id: string;
     private subscription: Subscription = new Subscription();
     private selectedResultIndex = 0;
+    // IngredientCard component instances are uniquely identified for jQuery by an id composed of "alcohol/ingredient + index"
+    id: string;
     selectedResult: Type.Result = null;
 
     constructor(private saqService: SaqService) {}
@@ -46,6 +46,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
             .subscribe(result => {
                 this.selectedResult = result;
                 this.alcoholSelected.emit({name: this.name, selected: result});
+                this.resizeCardText();
             });
 
             this.saqService.listProducts(this.name);
@@ -57,7 +58,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         const maxHeight = (this.isAlcohol) ? 28 : 56;
 
         Func.resizeText(`#${this.id} .title-text`, maxHeight);
-        Func.resizeText(`#${this.id} .alcohol-bottle-name`, 36);
+        Func.resizeText(`#${this.id} .alcohol-bottle-name h4`, 36);
     }
 
     formattedIngredientTitle(): string {
