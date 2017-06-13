@@ -38,7 +38,7 @@ export class Maths {
 
     static convertDecimalToFraction(num: number | string): string {
         if (!num || typeof num !== 'number') {
-            return null;
+            return '';
         }
 
         // if a recurring decimal, map to a fraction

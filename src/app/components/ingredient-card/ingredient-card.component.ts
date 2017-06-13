@@ -23,9 +23,9 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
     @Output() alcoholSelected: EventEmitter<Type.SelectedAlcohol> = new EventEmitter();
 
     // IngredientCard component instances are uniquely identified for jQuery by an id composed of "alcohol/ingredient + index"
-    id: string;
-    subscription: Subscription = new Subscription();
-    selectedResultIndex = 0;
+    private id: string;
+    private subscription: Subscription = new Subscription();
+    private selectedResultIndex = 0;
     selectedResult: Type.Result = null;
 
     constructor(private saqService: SaqService) {}
@@ -52,7 +52,7 @@ export class IngredientCardComponent implements OnInit, OnDestroy {
         }
     }
 
-    // resizing card title and alcohol bottle name respectively
+    // resizing card title and alcohol bottle name font size via jquery to fit in allocated space
     resizeCardText() {
         const maxHeight = (this.isAlcohol) ? 28 : 56;
 

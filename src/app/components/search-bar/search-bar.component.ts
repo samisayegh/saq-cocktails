@@ -9,10 +9,10 @@ import { CocktailService } from '../../services/cocktail/cocktail.service';
 })
 
 export class SearchBarComponent implements OnInit, OnDestroy {
+    private cocktails: string[] = this.cocktailService.cocktails;
+    private selectedCocktailSubscription: Subscription;
     query: string = null;
-    cocktails: string[] = this.cocktailService.cocktails;
     filteredOptions: string[] = [];
-    selectedCocktailSubscription: Subscription;
 
     constructor(private cocktailService: CocktailService) {}
 
